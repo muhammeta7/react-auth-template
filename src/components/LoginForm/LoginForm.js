@@ -3,9 +3,6 @@ import axios from 'axios';
 import './LoginForm.css';
 import { withRouter } from "react-router-dom";
 
-const API_BASE_URL = "http://localhost:1337";
-
-
 function LoginForm(props) {
     const [state , setState] = useState({
         identifier : "",
@@ -29,11 +26,11 @@ function LoginForm(props) {
             "password":state.password,
         }
 
-        console.log(payload);
-
-        axios.post(this.API_BASE_URL+'/auth/local', payload)
-            .then( (response) => {
-                if(response.status === 200){
+        axios.post('http://localhost:1337/auth/local', payload)
+            .then(
+                (response) => {
+                    if(response.status === 200){
+                        console.log(response);
                     setState(prevState => ({
                         ...prevState,
                         'successMessage' : 'Login successful. Redirecting to home page..'
