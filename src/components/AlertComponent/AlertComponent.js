@@ -33,5 +33,7 @@ function AlertComponent(props) {
             </div>
 
         </div>
-    )
+    );
 }
+
+export default AlertComponent;

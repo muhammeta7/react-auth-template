@@ -6,6 +6,8 @@ import {
     Route
 } from "react-router-dom";
 import Home from "./components/Home/Home";
+import LoginForm from "./components/LoginForm/LoginForm";
+import AlertComponent from "./components/AlertComponent/AlertComponent";
 
 function App() {
     const [title, updateTitle] = useState(null);
@@ -20,6 +22,9 @@ function App() {
                       <Route path="/" exact={true}>
                           <Home />
                       </Route>
+                      <Route path="/login" exact={true}>
+                          <LoginForm />
+                      </Route>
                       {/*<Route path="/dashboard">*/}
                       {/*  <Dashboard />*/}
                       {/*</Route>*/}
@@ -27,6 +32,7 @@ function App() {
                       {/*  <Preferences />*/}
                       {/*</Route>*/}
                   </Switch>
+                  <AlertComponent errorMessage={errorMessage} hideError={updateErrorMessage}/>
               </div>
           </div>
       </Router>
