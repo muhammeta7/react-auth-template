@@ -1,24 +1,36 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from "react-router-dom";
+import Home from "./components/Home/Home";
 
 function App() {
+    const [title, updateTitle] = useState(null);
+    const [errorMessage, updateErrorMessage] = useState(null);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+          <div className="App">
+              <div className="wrapper">
+                  <h1>Application</h1>
+                  <p>You got this login stuff man.</p>
+                  <Switch>
+                      <Route path="/" exact={true}>
+                          <Home />
+                      </Route>
+                      {/*<Route path="/dashboard">*/}
+                      {/*  <Dashboard />*/}
+                      {/*</Route>*/}
+                      {/*<Route path="/preferences">*/}
+                      {/*  <Preferences />*/}
+                      {/*</Route>*/}
+                  </Switch>
+              </div>
+          </div>
+      </Router>
+
   );
 }
 
